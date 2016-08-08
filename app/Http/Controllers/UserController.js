@@ -18,7 +18,7 @@ class UserController {
     input.password = yield Hash.make(input.password);
 
     const newUser = yield User.create(input);
-    newUser.access_token = yield request.auth.generate(newUser);
+    // newUser.access_token = yield request.auth.generate(newUser);
     return response.json(newUser.toJSON());
   }
 
