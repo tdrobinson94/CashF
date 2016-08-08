@@ -17,9 +17,18 @@ class UserController {
     const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
     input.password = yield Hash.make(input.password);
 
-    const newUser = yield User.create(input);
-    // newUser.access_token = yield request.auth.generate(newUser);
-    return response.json(newUser.toJSON());
+    const validation = yield Validator.validate(input, User.rules);
+
+    if (validation.fails()){
+      response.json(validation.message());
+      return
+    } else {
+      const newUser = yield User.create(input);
+      // newUser.access_token = yield request.auth.generate(newUser);
+      return response.json(newUser.toJSON());
+
+    }
+
   }
 
   * login (request, response){

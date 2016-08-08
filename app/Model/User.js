@@ -10,6 +10,14 @@ class User extends Lucid {
     return ['password'];
   }
 
+  static get rules () {
+      return {
+        username: 'required|unique:users',
+        email: 'required|email|unique:users',
+        password: 'required|confirmed',
+      }
+    }
+
   apiTokens(){
     return this.hasMany(Token);
   }
