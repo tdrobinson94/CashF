@@ -20,8 +20,8 @@ class UserController {
     const validation = yield Validator.validate(input, User.rules);
 
     if (validation.fails()){
-      response.json(validation.message());
-      return
+      return response.json(validation.message());
+
     } else {
       const newUser = yield User.create(input);
       // newUser.access_token = yield request.auth.generate(newUser);
