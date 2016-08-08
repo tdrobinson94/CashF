@@ -30,7 +30,7 @@ class UserController {
       const verify = yield Hash.verify(input.password, user.password)
 
       if (!verify) { throw new Error('Password Mismatch')};
-
+      user.access_token = yield request.auth.generate(user);
       return response.json(user.toJSON());
 
     } catch (e){
