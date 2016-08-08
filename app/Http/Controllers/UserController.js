@@ -1,5 +1,6 @@
 'use strict';
 
+const Validator = use('Validator')
 const User = use('App/Model/User');
 
 const Hash = use('Hash');
