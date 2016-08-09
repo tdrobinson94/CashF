@@ -18,17 +18,17 @@ class UserController {
     const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
     input.password = yield Hash.make(input.password);
 
-    const validation = yield Validator.validate(input, User.rules);
-
-    if (validation.fails()){
-      return response.json(validation.message());
-
-    } else {
+    // const validation = yield Validator.validate(input, User.rules);
+    //
+    // if (validation.fails()){
+    //   return response.json(validation.message());
+    //
+    // } else {
       const newUser = yield User.create(input);
       // newUser.access_token = yield request.auth.generate(newUser);
       return response.json(newUser.toJSON());
 
-    }
+    // }
 
   }
 
@@ -47,6 +47,7 @@ class UserController {
       return response.status(401).json({ error: e.message });
     }
   }
+
 }
 
 module.exports = UserController;
