@@ -3,6 +3,7 @@
 const Lucid = use('Lucid');
 
 const Token = use('App/Model/Token');
+const Account = use('App/Modle/Account')
 
 class User extends Lucid {
 
@@ -20,6 +21,10 @@ class User extends Lucid {
 
   apiTokens(){
     return this.hasMany(Token);
+  }
+
+  accounts (){
+    return this.hasMany(Account);
   }
 
 }

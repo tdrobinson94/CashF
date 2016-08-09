@@ -48,6 +48,12 @@ class UserController {
     }
   }
 
+  * delete (request, response){
+    const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
+
+    
+  }
+
 }
 
 module.exports = UserController;
