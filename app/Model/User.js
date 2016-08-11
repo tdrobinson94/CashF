@@ -3,7 +3,7 @@
 const Lucid = use('Lucid');
 
 const Token = use('App/Model/Token');
-const Account = use('App/Modle/Account')
+// const Account = use('App/Modle/Account')
 
 class User extends Lucid {
 
@@ -15,7 +15,7 @@ class User extends Lucid {
       return {
         username: 'required|unique:users',
         email: 'required|email|unique:users',
-        password: 'required|confirmed',
+        password: 'required',
       }
     }
 
@@ -23,9 +23,9 @@ class User extends Lucid {
     return this.hasMany(Token);
   }
 
-  accounts (){
-    return this.hasMany(Account);
-  }
+  // accounts (){
+  //   return this.hasMany(Account);
+  // }
 
 }
 

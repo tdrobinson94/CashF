@@ -8,9 +8,9 @@ const Hash = use('Hash');
 
 class UserController {
 
-
   * show (request, response){
     return response.json(request.authUser);
+
   }
 
 
@@ -18,17 +18,15 @@ class UserController {
     const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
     input.password = yield Hash.make(input.password);
 
-    // const validation = yield Validator.validate(input, User.rules);
-    //
-    // if (validation.fails()){
-    //   return response.json(validation.message());
-    //
-    // } else {
-      const newUser = yield User.create(input);
-      // newUser.access_token = yield request.auth.generate(newUser);
-      return response.json(newUser.toJSON());
+    const validation = yield Validator.validate(input, User.rules);
 
-    // }
+      if (validation.fails()){
+        response.json(validation.messages());
+        return response.json(validation.messages());
+      } else {
+        const newUser = yield User.create(input);
+        return response.json(newUser.toJSON());
+      }
 
   }
 
@@ -51,7 +49,7 @@ class UserController {
   * delete (request, response){
     const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
 
-    
+
   }
 
 }
