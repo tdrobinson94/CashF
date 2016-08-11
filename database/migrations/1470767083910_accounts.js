@@ -11,7 +11,6 @@ class AccountsSchema extends Schema {
       table.string('account_type', 254)
       table.string('account_title', 254)
       table.bigInteger('account_balance')
-      table.integer('user_id').references('id').inTable('User')
       table.timestamps()
     })
   }

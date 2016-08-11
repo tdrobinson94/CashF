@@ -22,6 +22,7 @@ class UserController {
 
       if (validation.fails()){
         response.json(validation.messages());
+        console.log(validation.messages());
         return response.json(validation.messages());
       } else {
         const newUser = yield User.create(input);
@@ -46,11 +47,11 @@ class UserController {
     }
   }
 
-  * delete (request, response){
-    const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
-
-
-  }
+  // * delete (request, response){
+  //   const input = request.only('email', 'password', 'username', 'firstname', 'lastname');
+  //
+  //
+  // }
 
 }
 
