@@ -23,10 +23,10 @@ class UserController {
       if (validation.fails()){
         response.json(validation.messages());
         console.log(validation.messages());
-        return response.json(validation.messages());
+        return response.status(422).json(validation.messages());
       } else {
         const newUser = yield User.create(input);
-        return response.json(newUser.toJSON());
+        return response.status(201).json(newUser.toJSON());
       }
 
   }
