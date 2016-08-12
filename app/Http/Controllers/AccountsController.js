@@ -9,7 +9,7 @@ class AccountsController {
     const input = request.only('user_id');
     console.log(input);
     // const newAccount = yield Account.findBy('user_id', input.user_id);
-    const newAccount = yield Account.query().where('user_id', input.user_id).fetch();
+    const newAccount = yield Account.query().where('user_id', input.user_id).limit(15).fetch();
     return response.json(newAccount.toJSON());
   }
 
@@ -20,6 +20,10 @@ class AccountsController {
 
     const newAccount = yield Account.create(input);
     return response.json(newAccount.toJSON());
+  }
+
+  * delete (request, response){
+
   }
 
 }
