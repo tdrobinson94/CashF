@@ -5,6 +5,13 @@ const Account = use("App/Model/Account");
 
 class AccountsController {
 
+  * show (request, response){
+    const input = request.only('user_id');
+    console.log(input);
+    const newAccount = yield Account.findBy('user_id', input.user_id);
+    return response.json(newAccount.toJSON());
+  }
+
   * store (request, response){
     const input = request.only('bank', 'account_type', 'account_title', 'account_balance');
     const theUser = request.authUser;
