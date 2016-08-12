@@ -9,7 +9,7 @@ class AccountsController {
     const input = request.only('user_id');
     console.log(input);
     // const newAccount = yield Account.findBy('user_id', input.user_id);
-    const newAccount = yield Account.query().where('user_id', input.user_id).limit(15).fetch();
+    const newAccount = yield Account.query().where('user_id', input.user_id).fetch();
     return response.json(newAccount.toJSON());
   }
 
