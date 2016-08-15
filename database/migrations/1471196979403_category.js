@@ -8,7 +8,6 @@ class CategorySchema extends Schema {
     this.create('category', (table) => {
       table.increments()
       table.string('category', 80)
-      table.string('value')
     })
   }
 

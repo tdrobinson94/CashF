@@ -5,7 +5,7 @@ const Schema = use('Schema')
 class AccountsSchema extends Schema {
 
   up () {
-    this.table('accounts', (table) => {
+    this.create('accounts', (table) => {
       table.increments()
       table.string('bank', 254)
       table.string('account_type', 254)
