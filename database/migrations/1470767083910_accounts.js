@@ -7,6 +7,7 @@ class AccountsSchema extends Schema {
   up () {
     this.table('accounts', (table) => {
       table.date('published_date')
+      table.dropColumns('created_at', 'updated_at')
     })
   }
 
