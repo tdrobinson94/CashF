@@ -6,7 +6,7 @@ class AdduseridSchema extends Schema {
 
   up () {
     this.table('accounts', (table) => {
-      table.integer('user_id')
+      // table.integer('user_id')
     })
   }
 
