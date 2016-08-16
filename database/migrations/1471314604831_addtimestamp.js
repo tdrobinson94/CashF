@@ -6,7 +6,7 @@ class AddtimestampSchema extends Schema {
 
   up () {
     this.table('accounts', (table) => {
-        
+      // table.dropColumn('created_at')
     })
   }
 
