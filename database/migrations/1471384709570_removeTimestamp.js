@@ -6,7 +6,7 @@ class RemoveTimestampSchema extends Schema {
 
   up () {
     this.table('accounts', (table) => {
-      table.timestamps('created_at')
+      table.timestamps('created_at', 'updated_at')
     })
   }
 
