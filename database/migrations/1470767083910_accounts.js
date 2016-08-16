@@ -6,8 +6,11 @@ class AccountsSchema extends Schema {
 
   up () {
     this.table('accounts', (table) => {
-      table.date('published_date')
-      table.dropColumns('created_at', 'updated_at')
+      table.increments()
+      table.string('bank', 254)
+      table.string('account_type', 254)
+      table.string('account_title', 254)
+      table.bigInteger('account_balance')
     })
   }
 
