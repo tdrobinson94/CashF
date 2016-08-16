@@ -5,13 +5,13 @@ const Schema = use('Schema')
 class RemoveTimestampSchema extends Schema {
 
   up () {
-    this.table('remove_timestamp', (table) => {
+    this.table('accounts', (table) => {
       table.dropColumn('created_at')
     })
   }
 
   down () {
-    this.table('remove_timestamp', (table) => {
+    this.table('accounts', (table) => {
       // opposite of up goes here
     })
   }
