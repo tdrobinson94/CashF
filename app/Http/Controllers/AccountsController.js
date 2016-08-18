@@ -9,7 +9,7 @@ class AccountsController {
     const input = request.only('user_id');
     console.log(input);
     // const newAccount = yield Account.findBy('user_id', input.user_id);
-    const accounts = yield Account.query().where('user_id', input.user_id).fetch();
+    const accounts = yield Account.query().where('user_id', input.user_id).limit(1).fetch();
     return response.json(accounts.toJSON());
   }
 
@@ -20,9 +20,10 @@ class AccountsController {
     // take user account id and check the databse for accounts
     // if they have an account, then respond with an error
     // let hasAccount = yield Account.query().where('user_id', input.user_id).limit(1).fetch();
+    // let hasAccount = yield database.from('accounts').where('user_id', input.user_id).count('id as id')[0]['id'];
     // TODO: Figure out how to see if an accout already exists.
     // console.log('USER ACCOUNT', hasAccount);
-    // if (hasAccount){
+    // if (hasAccount > 0){
     //   return response.json({ error: 'User already has an account! '});
     // }
 
