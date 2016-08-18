@@ -19,12 +19,12 @@ class AccountsController {
     input.user_id = theUser.id;
     // take user account id and check the databse for accounts
     // if they have an account, then respond with an error
-    // let hasAccount = yield Account.query().where('user_id', input.user_id).limit(1).fetch();
+    let hasAccount = yield Account.query().where('user_id', input.user_id).limit(1).fetch();
     // TODO: Figure out how to see if an accout already exists.
     // console.log('USER ACCOUNT', hasAccount);
-    // if (hasAccount){
-    //   return response.json({ error: 'User already has an account! '});
-    // }
+    if (hasAccount){
+      return response.json({ error: 'User already has an account! '});
+    }
 
     const newAccount = yield Account.create(input);
     return response.json(newAccount.toJSON());
