@@ -33,7 +33,7 @@ class AccountsController {
     input.user_id = request.authUser.id;
     // const account = yield Account.query().where(input).delete();
     const account = yield Account.findBy('id', request.param('id'));
-    yield account.delete();
+    yield account.forceDelete();
     console.log(account);
     yield response.status(204).json();
   }
