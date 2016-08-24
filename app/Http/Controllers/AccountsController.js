@@ -23,7 +23,7 @@ class AccountsController {
       const newAccount = yield Account.create(input);
       return response.json(newAccount.toJSON());
     } else {
-      return response.json({ error: 'User already has an account! '});
+      return response.status(204).json();
     }
 
   }
