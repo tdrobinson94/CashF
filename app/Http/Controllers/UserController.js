@@ -43,7 +43,7 @@ class UserController {
       return response.json(user.toJSON());
 
     } catch (e){
-      return response.status(401).json({ error: e.message });
+      return response.status(204).json({ error: e.message });
     }
   }
 
